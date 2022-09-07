@@ -1,0 +1,29 @@
+{
+  "name": "uvst",
+  "version": "1.1.3",
+  "description": "UVST - Это бесплатный GULP сборщик проектов, разработанный unniiiverse.",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unniiiverse/UVST.git"
+  },
+  "keywords": [
+    "gulp",
+    "unniiiverse",
+    "uvst",
+    "template"
+  ],
+  "author": "unniiiverse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unniiiverse/UVST/issues"
+  },
+  "homepage": "https://github.com/unniiiverse/UVST#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
