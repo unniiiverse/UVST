@@ -25,6 +25,7 @@
   "homepage": "https://github.com/unniiiverse/UVST#readme",
   "devDependencies": {
     "del": "^7.0.0",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0"
   }
 }
