@@ -1,9 +1,11 @@
 import gulp from 'gulp';
 import { path } from './gulp/config/path.js';
+import { plugins } from './gulp/config/plugins.js';
 
 global.app = {
     gulp,
-    path
+    path,
+    plugins
 }
 
 import { copy } from './gulp/tasks/copy.js';
