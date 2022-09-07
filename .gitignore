@@ -1,3 +1,4 @@
 .vs-code/
 node_modules/
 notes.txt
+dist/
