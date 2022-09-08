@@ -8,9 +8,10 @@ global.app = {
     plugins
 }
 
-import { copy } from './gulp/tasks/copy.js';
 import { clear } from './gulp/tasks/clear.js';
+import { copy } from './gulp/tasks/copy.js';
 import { html } from './gulp/tasks/html.js';
+import { server } from './gulp/tasks/server.js';
 
 function watcher() {
     gulp.watch(path.watch.files, copy);
@@ -18,6 +19,6 @@ function watcher() {
 }
 
 const tasks = gulp.parallel(copy, html)
-const dev = gulp.series(clear, tasks, watcher);
+const dev = gulp.series(clear, tasks, gulp.parallel(watcher, server));
 
 gulp.task('default', dev);

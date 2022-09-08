@@ -1,12 +1,9 @@
-import fileinclude from "gulp-file-include";
+import fileinclude from 'gulp-file-include';
 import webpHtmlNosvg from 'gulp-webp-html-nosvg';
 import nocache from 'gulp-version-number';
 
 export const html = () => {
     return app.gulp.src(app.path.src.html)
-        .pipe(fileinclude({
-            prefix: '@@'
-        }))
         .pipe(app.plugins.replace(/@img\//g, 'img/'))
         .pipe(webpHtmlNosvg())
         .pipe(nocache({
@@ -16,5 +13,9 @@ export const html = () => {
                 'to': ['css', 'js']
             }
         }))
-        .pipe(app.gulp.dest(app.path.build.html));
+        .pipe(fileinclude({
+            prefix: '@@'
+        }))
+        .pipe(app.gulp.dest(app.path.build.html))
+        .pipe(app.plugins.browserSync.stream());
 }
