@@ -3,6 +3,8 @@ import { path } from './gulp/config/path.js';
 import { plugins } from './gulp/config/plugins.js';
 
 global.app = {
+    isBuild: process.argv.includes('--build'),
+    isDev: !process.argv.includes('--build'),
     gulp,
     path,
     plugins
@@ -16,6 +18,7 @@ import { scss } from './gulp/tasks/scss.js';
 import { js } from './gulp/tasks/js.js';
 import { images } from './gulp/tasks/images.js';
 import { otfToTtf, ttfToWoff, fontsStyle } from './gulp/tasks/fonts.js'
+import { svgSprive } from './gulp/tasks/svgSprive.js';
 
 function watcher() {
     gulp.watch(path.watch.files, copy);
@@ -26,8 +29,16 @@ function watcher() {
 }
 
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
-const tasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
+const tasks = gulp.parallel(copy, html, scss, js, images);
 
+const setup = gulp.parallel(clear);
 const dev = gulp.series(clear, tasks, gulp.parallel(watcher, server));
+const build = gulp.series(clear, tasks);
+
+export { setup };
+export { dev };
+export { build };
+export { fonts };
+export { svgSprive }; // svg
 
 gulp.task('default', dev);

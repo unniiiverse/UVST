@@ -5,14 +5,20 @@ import nocache from 'gulp-version-number';
 export const html = () => {
     return app.gulp.src(app.path.src.html)
         .pipe(app.plugins.replace(/@img\//g, 'img/'))
-        .pipe(webpHtmlNosvg())
-        .pipe(nocache({
-            'value': '%DT%',
-            'append': {
-                'key': 'nocache',
-                'to': ['css', 'js']
-            }
-        }))
+        .pipe(app.plugins.if(
+            app.isBuild,
+            webpHtmlNosvg()
+        ))
+        .pipe(app.plugins.if(
+            app.isBuild,
+            nocache({
+                'value': '%DT%',
+                'append': {
+                    'key': 'nocache',
+                    'to': ['css', 'js']
+                }
+            })
+        ))
         .pipe(fileinclude({
             prefix: '@@'
         }))
