@@ -1,2 +1,43 @@
-@import './base/fonts';
+@use 'sass:math';
 @import './base/normalize';
+
+@import './base/mixins';
+@import './base/config';
+@import './base/fonts';
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    
+    * {
+        font-size: $fontSize;
+        font-family: $fontFamily;
+        font-weight: $fontWeight;
+        color: $fontColor;
+    }
+}
+
+.wrapper {
+    max-width: $wrapperMaxWidth;
+    width: 100%;
+    min-width: $wrapperMinWidth;
+    margin: 0 auto;
+    padding: 0 $wrapperSidePadding;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        content: 'systemTheme--dark';
+    }
+}
+
+@import './base/common';
+
+@import './header';
+@import './footer';
+
+@import './home';

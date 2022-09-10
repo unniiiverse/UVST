@@ -1,8 +1,14 @@
+const html = document.documentElement;
+
 export function getBrowserLanguage() {
     return navigator.language || navigator.userLanguage;
 }
 
-export function isWebp() {
+export function getSystemTheme() {
+    return window.getComputedStyle(html).content.includes('dark') ? 'dark' : 'light';
+}
+
+(function () {
     function testWebP(callback) {
         let webP = new Image();
         webP.onload = webP.onerror = function () {
@@ -14,4 +20,4 @@ export function isWebp() {
     testWebP(function (support) {
         document.documentElement.classList.add(support === true ? 'webp' : 'no-webp');
     });
-}
+}());
