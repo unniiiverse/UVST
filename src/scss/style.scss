@@ -30,6 +30,13 @@ html {
     position: relative;
 }
 
+// Tippy.js анимации. (data-animation = animation в uvstFunctions.tippyjs([SELECTOR], [CONTENT], [ANIMATION]); в app.js)
+.tippy-box {
+    &[data-animation='fade'][data-state='hidden'] {
+        opacity: 0;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         content: 'systemTheme--dark';

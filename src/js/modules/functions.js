@@ -1,3 +1,5 @@
+import tippy from 'tippy.js';
+
 const html = document.documentElement;
 const modulesLinkWrapper = document.querySelector('#modulesLinkWrapper');
 
@@ -10,16 +12,26 @@ export function getSystemTheme() {
 }
 
 export function animate() {
-    let animatecss = `https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css`;
-
     new WOW().init();
 
-    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="${animatecss}">`);
-    document.querySelectorAll('.wow').forEach(el => {
+    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">`);
+
+    document.querySelectorAll('[class*="animate__"]').forEach(el => {
+        el.classList.add('wow');
+        el.classList.add('animate__animated');
+
         if (!el.getAttribute('data-wow-offset')) {
-            el.classList.add('animate__animated');
             el.setAttribute('data-wow-offset', el.scrollHeight);
         }
+    })
+}
+
+export function tippyjs(selector, content, animation) {
+    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.7/animations/${animation}.css">`);
+
+    tippy(selector, {
+        content,
+        animation,
     })
 }
 
