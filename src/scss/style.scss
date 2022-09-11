@@ -30,6 +30,13 @@ html {
     position: relative;
 }
 
+img {
+    max-width: 100%;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+}
+
 // =========================== *\
 // Tippy.js анимации.
 // =========================== */

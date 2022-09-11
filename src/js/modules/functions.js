@@ -1,4 +1,5 @@
 import tippy from 'tippy.js';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 const html = document.documentElement;
 const modulesLinkWrapper = document.querySelector('#modulesLinkWrapper');
@@ -26,28 +27,18 @@ export function animate() {
     })
 }
 
-export function tippyjs(selector, config = {
-    content: '',
-    animation: 'fade',
-    placement: 'top',
-    trigger: 'click',
-    arrow: false,
-    interactive: false,
-    allowHTML: false,
-    delay: 0
-}) {
+export function tippyInit(selector, config = {}) {
     modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.7/animations/${config.animation}.css">`);
 
-    tippy(selector, {
-        content: config.content,
-        animation: config.animation,
-        placement: config.placement,
-        arrow: config.arrow,
-        trigger: config.trigger,
-        interactive: config.interactive,
-        allowHTML: config.allowHTML,
-        delay: config.delay
-    })
+    tippy(selector, config);
+}
+
+export function swiperInit(selector, config = {}) {
+    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">`);
+
+    config.modules = [Navigation, Pagination];
+
+    const swiper = new Swiper(selector, config);
 }
 
 (function () {

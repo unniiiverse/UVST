@@ -51,6 +51,7 @@
     "gulp-webpcss": "^1.1.1",
     "gulp-zip": "^5.1.0",
     "sass": "^1.54.9",
+    "swiper": "^8.3.2",
     "tippy.js": "^6.3.7",
     "webp-converter": "^2.2.3",
     "webpack": "^5.74.0",
