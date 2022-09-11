@@ -26,12 +26,27 @@ export function animate() {
     })
 }
 
-export function tippyjs(selector, content, animation) {
-    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.7/animations/${animation}.css">`);
+export function tippyjs(selector, config = {
+    content: '',
+    animation: 'fade',
+    placement: 'top',
+    trigger: 'click',
+    arrow: false,
+    interactive: false,
+    allowHTML: false,
+    delay: 0
+}) {
+    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.7/animations/${config.animation}.css">`);
 
     tippy(selector, {
-        content,
-        animation,
+        content: config.content,
+        animation: config.animation,
+        placement: config.placement,
+        arrow: config.arrow,
+        trigger: config.trigger,
+        interactive: config.interactive,
+        allowHTML: config.allowHTML,
+        delay: config.delay
     })
 }
 

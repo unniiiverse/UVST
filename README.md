@@ -66,7 +66,7 @@ npm run svg
 ```
 
 ## HTML Модули
-Ты можешь "склеивать" разные html страницы в одну блягодаря плагину **gulp-file-include** [npm](https://www.npmjs.com/package/gulp-file-include) <br>
+Вы можете "склеивать" разные html страницы в одну блягодаря плагину **gulp-file-include** [npm](https://www.npmjs.com/package/gulp-file-include) <br>
 Использование:
 ```js
 @@include('[FOLDER]/[FILE].html', {[ATTRIBUTES]})
@@ -92,11 +92,44 @@ uvstFunctions.animate(); // Анимации появления контента
 ```html
 <div class="animate__fadeInUp"></div>
 ```
+Использование:
+```js
+uvstFunctions.animate();
+```
 
 ## Тултипы.
-Тултипы реализованые через библиотеку tippy.js ([atomiks.github.io](https://atomiks.github.io/tippyjs/)). Если контент тултипа появляется без анимации, выберете другую. Использование: 
+Тултипы реализованые через библиотеку tippy.js ([atomiks.github.io](https://atomiks.github.io/tippyjs/)). Если контент тултипа появляется без анимации, выберете другую. 
+Создать свою анимацию для тултипа можно в scss/style.scss в разделе **tippy.js анимации**. Пример:
+```scss
+.tippy-box {
+    &[data-animation='[ANIMATION]'][data-state='hidden'] {
+        [SETTINGS]
+    }
+}
+```
+[data-animation='[ANIMATION]' это название анимации, которую вы указали в настройках.
+
+Использование: 
 ```js
-uvstFunctions.tippyjs('[SELECTOR]', '[CONTENT]', '[ANIMATION]');
+uvstFunctions.tippyjs('[SELECTOR]', {
+    content: '',           // default
+    animation: 'fade',     // default
+    placement: 'top',      // default
+    trigger: 'click',      // default
+    arrow: false,          // default
+    interactive: false,    // default
+    allowHTML: false,      // default
+    delay: 0               // ms. default
+})
+```
+Функция поддерживает все вышеонаписанные настройки, подробнее смотрете в документации tippy.js.
+
+Пример:
+```js
+uvstFunctions.tippyjs('#btn', {
+    content: 'content',
+    animation: 'fade'
+})
 ```
 
 ## UVSTM Модули
