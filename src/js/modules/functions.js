@@ -1,3 +1,4 @@
+import * as uvstm from './modulesBundle.js'
 import tippy from 'tippy.js';
 import Swiper, { Navigation, Pagination } from 'swiper';
 
@@ -39,6 +40,18 @@ export function swiperInit(selector, config = {}) {
     config.modules = [Navigation, Pagination];
 
     const swiper = new Swiper(selector, config);
+}
+
+export function accordionInit() {
+    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unniiiverse.github.io/static/cdn/style/uvstm-accordion/@1.0.0/style.min.css">`);
+
+    uvstm.accordion();
+}
+
+export function tabsInit() {
+    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unniiiverse.github.io/static/cdn/style/uvstm-tabs/@1.0.0/style.min.css">`);
+
+    uvstm.tabs();
 }
 
 (function () {
