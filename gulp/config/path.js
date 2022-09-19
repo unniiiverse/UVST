@@ -3,6 +3,7 @@ const rootFolder = nodePath.basename(nodePath.resolve());
 
 const buildFolder = `./dist`;
 const srcFolder = `./src`;
+const backup = `./backup`;
 
 export const path = {
     build: {
@@ -32,5 +33,6 @@ export const path = {
     clean: buildFolder,
     buildFolder,
     srcFolder,
-    rootFolder
+    rootFolder,
+    backup,
 }

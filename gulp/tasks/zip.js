@@ -9,8 +9,8 @@ export const zip = () => {
 }
 
 export const backup = () => {
-    deleteAsync([`./srcBackup-${app.path.rootFolder}.zip`]);
+    deleteAsync([`./backup/srcBackup-${app.path.rootFolder}.zip`]);
     return app.gulp.src(`${app.path.srcFolder}/**/*.*`, {})
         .pipe(gulpZip(`srcBackup-${app.path.rootFolder}.zip`))
-        .pipe(app.gulp.dest('./'));
+        .pipe(app.gulp.dest('./backup/'));
 }
