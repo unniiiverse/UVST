@@ -1,7 +1,7 @@
 import { deleteAsync } from 'del';
 
 export const clear = () => {
-    return deleteAsync(['dist/*'])
+    return deleteAsync(['dist/*', '!dist/.git'])
 }
 
 export const clearSrc = () => {
