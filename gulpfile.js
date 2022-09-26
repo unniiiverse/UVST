@@ -29,7 +29,7 @@ function watcher() {
     gulp.watch(path.watch.images, images);
 }
 
-const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+const fonts = gulp.series(clear, copy, otfToTtf, ttfToWoff, fontsStyle);
 const tasks = gulp.parallel(copy, gulp.series(html, htmlInclude), scss, js, images);
 
 const setup = gulp.series(backup, gulp.parallel(clear, clearSrc), useSrcBackup);

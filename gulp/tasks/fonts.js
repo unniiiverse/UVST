@@ -33,32 +33,60 @@ export const fontsStyle = () => {
                     let fontFileName = fontsFiles[i].split('.')[0];
                     if (newFileOnly !== fontFileName) {
                         let fontName = fontFileName.split('-')[0] ? fontFileName.split('-')[0] : fontFileName;
-                        let fontWeight = fontFileName.split('-')[1] ? fontFileName.split('-')[1] : fontFileName;
-                        if (fontWeight.toLowerCase() === 'thin') {
-                            fontWeight = 100;
-                        } else if (fontWeight.toLowerCase() === 'extralight') {
-                            fontWeight = 200;
-                        } else if (fontWeight.toLowerCase() === 'light') {
-                            fontWeight = 300;
-                        } else if (fontWeight.toLowerCase() === 'medium') {
-                            fontWeight = 500;
-                        } else if (fontWeight.toLowerCase() === 'semibold') {
-                            fontWeight = 600;
-                        } else if (fontWeight.toLowerCase() === 'bold') {
-                            fontWeight = 700;
-                        } else if (fontWeight.toLowerCase() === 'extrabold' || fontWeight.toLowerCase() === 'heavy') {
-                            fontWeight = 800;
-                        } else if (fontWeight.toLowerCase() === 'black') {
-                            fontWeight = 900;
+                        let fontWS = fontFileName.split('-')[1] ? fontFileName.split('-')[1] : fontFileName;
+                        let fontStyle = 'normal';
+
+                        console.log(fontWS)
+
+                        if (fontWS.toLowerCase() === 'thin') {
+                            fontWS = 100;
+                        } else if (fontWS.toLowerCase() === 'extralight' || fontWS.toLowerCase() === 'ultralight') {
+                            fontWS = 200;
+                        } else if (fontWS.toLowerCase() === 'light') {
+                            fontWS = 300;
+                        } else if (fontWS.toLowerCase() === 'medium') {
+                            fontWS = 500;
+                        } else if (fontWS.toLowerCase() === 'semibold') {
+                            fontWS = 600;
+                        } else if (fontWS.toLowerCase() === 'bold') {
+                            fontWS = 700;
+                        } else if (fontWS.toLowerCase() === 'extrabold' || fontWS.toLowerCase() === 'heavy') {
+                            fontWS = 800;
+                        } else if (fontWS.toLowerCase() === 'black') {
+                            fontWS = 900;
+                        } else if (fontWS.toLowerCase() === 'thinitalic') {
+                            fontWS = 100;
+                            fontStyle = 'italic';
+                        } else if (fontWS.toLowerCase() === 'extralightitalic' || fontWS.toLowerCase() === 'ultralightitalic') {
+                            fontWS = 200;
+                            fontStyle = 'italic';
+                        } else if (fontWS.toLowerCase() === 'lightitalic') {
+                            fontWS = 300;
+                            fontStyle = 'italic';
+                        } else if (fontWS.toLowerCase() === 'mediumitalic') {
+                            fontWS = 500;
+                            fontStyle = 'italic';
+                        } else if (fontWS.toLowerCase() === 'semibolditalic') {
+                            fontWS = 600;
+                            fontStyle = 'italic';
+                        } else if (fontWS.toLowerCase() === 'bolditalic') {
+                            fontWS = 700;
+                            fontStyle = 'italic';
+                        } else if (fontWS.toLowerCase() === 'extrabolditalic' || fontWS.toLowerCase() === 'heavyitalic') {
+                            fontWS = 800;
+                            fontStyle = 'italic';
+                        } else if (fontWS.toLowerCase() === 'blackitalic') {
+                            fontWS = 900;
+                            fontStyle = 'italic';
                         } else {
-                            fontWeight = 400;
+                            fontWS = 400;
                         }
-                        fs.appendFile(fontsFile, `@font-face{\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWeight};\n\tfont-style: normal;\n}\r\n`, cb);
+                        fs.appendFile(fontsFile, `@font-face{\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../../fonts/${fontFileName}.woff2") format("woff2"), url("../../fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWS};\n\tfont-style: ${fontStyle};\n}\r\n`, cb);
                         newFileOnly = fontFileName;
                     }
                 }
             } else {
-                console.log("Файл scss/base/fonts.scss уже существует. Для обновления файла нужно его удалить!");
+                console.error("Файл scss/base/fonts.scss уже существует. Для обновления файла нужно его удалить!");
             }
         }
     });

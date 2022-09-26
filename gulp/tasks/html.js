@@ -29,5 +29,6 @@ export const htmlInclude = () => {
             prefix: '@@',
             basepath: '@file'
         }))
+        .pipe(app.plugins.replace(/@img\//g, 'img/'))
         .pipe(app.gulp.dest(app.path.build.html));
 }
