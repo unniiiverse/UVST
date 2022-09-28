@@ -1,14 +1,13 @@
 {
   "name": "uvst",
-  "version": "1.1.3",
-  "description": "UVST - Это бесплатный GULP сборщик проектов, разработанный unniiiverse.",
+  "version": "1.1.4",
+  "description": "UVST - Free and powerfull gulp assembler by unniiiverse",
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
     "setup": "npm i && gulp setup",
     "dev": "gulp",
     "build": "gulp build --build",
-    "svg": "gulp svgSprive",
     "zip": "gulp createZip --build",
     "fonts": "gulp fonts"
   },
@@ -43,7 +42,6 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.3",
     "gulp-sass": "^5.1.0",
-    "gulp-svg-sprite": "^1.5.0",
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-version-number": "^0.2.4",
     "gulp-webp": "^4.0.1",

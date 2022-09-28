@@ -88,8 +88,8 @@ img {
 }
 
 // Подключение файлов стилей общих страниц
-@import './header';
-@import './footer';
+@import './components/header';
+@import './components/footer';
 
 // Подключение файлов стилей отдельных страниц
-@import './page';
+@import './index';

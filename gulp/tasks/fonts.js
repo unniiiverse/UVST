@@ -36,8 +36,6 @@ export const fontsStyle = () => {
                         let fontWS = fontFileName.split('-')[1] ? fontFileName.split('-')[1] : fontFileName;
                         let fontStyle = 'normal';
 
-                        console.log(fontWS)
-
                         if (fontWS.toLowerCase() === 'thin') {
                             fontWS = 100;
                         } else if (fontWS.toLowerCase() === 'extralight' || fontWS.toLowerCase() === 'ultralight') {
@@ -81,7 +79,7 @@ export const fontsStyle = () => {
                         } else {
                             fontWS = 400;
                         }
-                        fs.appendFile(fontsFile, `@font-face{\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../../fonts/${fontFileName}.woff2") format("woff2"), url("../../fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWS};\n\tfont-style: ${fontStyle};\n}\r\n`, cb);
+                        fs.appendFile(fontsFile, `@font-face{\n\tfont-family: '${fontName}';\n\tfont-display: swap;\n\tsrc: url("../../fonts/${fontFileName}.woff2") format("woff2"), url("../../fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWS};\n\tfont-style: ${fontStyle};\n}\r\n`, cb);
                         newFileOnly = fontFileName;
                     }
                 }
