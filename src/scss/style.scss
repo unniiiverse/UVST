@@ -1,7 +1,6 @@
-@use 'sass:math';
 @import './base/normalize';
 @import './base/fonts';
-// google fonts, etc
+// google fonts, ...
 
 @import './base/mixins';
 @import './base/common';
@@ -10,12 +9,12 @@
 // Стандартные настройки шрифтов.
 // =========================== */
 $fontSize: 16px;
-$fontWS: 400;
+$fontWeight: 400;
 $fontColor: #000;
 $fontFamily: system-ui;
 
 // =========================== *\
-// Настройки ограничивающего контейнера
+// Настройки ограничивающего контейнера.
 // =========================== */
 $wrapperMaxWidth: 1170px;
 $wrapperMinWidth: 320px;
@@ -32,29 +31,45 @@ $wrapperSidePadding: 16px;
 }
 
 // =========================== *\
+// UVST классы.
+// =========================== */
 
-html {
+html,
+body {
     scroll-behavior: smooth;
     overflow-x: hidden;
-
-    * {
-        font-size: $fontSize;
-        font-family: $fontFamily;
-        font-weight: $fontWS;
-        color: $fontColor;
-    }
 }
 
-.wrapper {
-    max-width: $wrapperMaxWidth;
-    width: 100%;
-    min-width: $wrapperMinWidth;
-    margin: 0 auto;
-    padding: 0 $wrapperSidePadding;
+p,
+span,
+b,
+strong,
+i,
+sub,
+sup,
+a,
+input,
+input::placeholder,
+textarea {
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    font-weight: $fontWeight;
+    color: $fontColor;
 
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+    text-decoration-skip-ink: auto;
+}
+
+input::placeholder {
+    color: rgba($color: $fontColor, $alpha: .4);
+}
+
+a:hover {
+    color: inherit;
 }
 
 img {
@@ -63,6 +78,18 @@ img {
     position: relative;
     object-fit: cover;
     object-position: center;
+}
+
+.wrapper {
+    max-width: $wrapperMaxWidth;
+    min-width: calc($wrapperMinWidth + calc($wrapperSidePadding * 2));
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $wrapperSidePadding;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .g {

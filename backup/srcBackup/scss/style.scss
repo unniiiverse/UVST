@@ -10,7 +10,7 @@
 // Стандартные настройки шрифтов.
 // =========================== */
 $fontSize: 16px;
-$fontWS: 400;
+$fontWeight: 400;
 $fontColor: #000;
 $fontFamily: system-ui;
 
@@ -40,15 +40,28 @@ html {
     * {
         font-size: $fontSize;
         font-family: $fontFamily;
-        font-weight: $fontWS;
+        font-weight: $fontWeight;
         color: $fontColor;
     }
 }
 
+p, span, b, strong, i, sub, sup, a, input, input::placeholder, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+    text-decoration-skip-ink: auto;
+}
+
+a:hover {
+    color: inherit;
+}
+
 .wrapper {
     max-width: $wrapperMaxWidth;
+    min-width: calc(wrapperMinWidth + calc($wrapperSidePadding * 2));
     width: 100%;
-    min-width: $wrapperMinWidth;
     margin: 0 auto;
     padding: 0 $wrapperSidePadding;
 
