@@ -25,7 +25,22 @@
     @@include('./html/components/header.html', {})
 
     <main class="main" id="main">
-        
+
+        <button class="uvstm-modal-trigger_button">
+            trigger #1
+        </button>
+
+        <!-- Окно -->
+        <div class="uvstm-modal-container" data-uvstm-modal-container_close>
+            <!-- Модальное окно -->
+            <div class="uvstm-modal-container_modal" aria-hidden="true">
+                <!-- Кнопка для закрытия модального окна -->
+                <button class="uvstm-modal-container_close" data-uvstm-modal-container_close>
+                    [X]
+                </button>
+            </div>
+        </div>
+
     </main>
 
     @@include('./html/components/footer.html', {})
