@@ -44,7 +44,7 @@ export function swiperInit(selector, config = {}) {
 }
 
 export function accordionInit() {
-    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unniiiverse.github.io/cdn/module/uvstm/accordion/@1.0.0/style.min.css">`);
+    modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://unniiiverse.github.io/cdn/module/uvstm/accordion/@1.1.0/style.min.css">`);
 
     uvstm.accordion();
 }
