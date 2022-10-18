@@ -1,4 +1,4 @@
-@import './base/normalize';
+@import url('https://unniiiverse.github.io/cdn/style/normalize.min.css');
 @import './base/fonts';
 // google fonts, ...
 
@@ -6,7 +6,7 @@
 @import './base/common';
 
 // =========================== *\
-// Стандартные настройки шрифтов.
+// Default font settings.
 // =========================== */
 $fontSize: 16px;
 $fontWeight: 400;
@@ -14,14 +14,14 @@ $fontColor: #000;
 $fontFamily: system-ui;
 
 // =========================== *\
-// Настройки ограничивающего контейнера.
+// Wrapper settings.
 // =========================== */
 $wrapperMaxWidth: 1170px;
 $wrapperMinWidth: 320px;
 $wrapperSidePadding: 16px;
 
 // =========================== *\
-// Tippy.js анимации.
+// Tippy.js animations.
 // =========================== */
 
 .tippy-box {
@@ -31,7 +31,7 @@ $wrapperSidePadding: 16px;
 }
 
 // =========================== *\
-// UVST классы.
+// UVST classes.
 // =========================== */
 
 html,
@@ -110,9 +110,9 @@ img {
     }
 }
 
-// Подключение файлов стилей общих страниц
+// Import common pages/components styles
 @import './components/header';
 @import './components/footer';
 
-// Подключение файлов стилей отдельных страниц
+// Import single pages styles
 @import './index';

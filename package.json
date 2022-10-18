@@ -1,6 +1,6 @@
 {
   "name": "uvst",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "UVST - Free and powerfull gulp assembler by unniiiverse",
   "main": "gulpfile.js",
   "type": "module",
