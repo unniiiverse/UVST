@@ -31,15 +31,11 @@ function watcher() {
 const fonts = gulp.series(updateFonts, otfToTtf, ttfToWoff, fontsStyle);
 const tasks = gulp.parallel(copy, gulp.series(html, htmlInclude), scss, js, images);
 
-const setup = gulp.series(backup, gulp.parallel(clear, setupClear), useSrcBackup, setupClearSecondStage);
+const init = gulp.series(backup, gulp.parallel(clear, setupClear), useSrcBackup, setupClearSecondStage);
 const dev = gulp.series(clear, tasks, gulp.parallel(watcher, server));
 const build = gulp.series(clear, tasks, fonts);
 const createZip = gulp.series(build, zip);
 
-export { setup };
-export { dev };
-export { build };
-export { fonts };
-export { createZip };
+export { init, dev, build, fonts, createZip };
 
 gulp.task('default', dev);

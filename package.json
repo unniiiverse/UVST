@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
-    "setup": "npm i && gulp setup",
+    "init": "npm i && gulp init",
     "dev": "gulp",
     "build": "gulp build --build",
     "zip": "gulp createZip --build",
