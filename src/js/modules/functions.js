@@ -14,7 +14,7 @@ export function getSystemTheme() {
     return window.getComputedStyle(html).content.includes('dark') ? 'dark' : 'light';
 }
 
-export function animate() {
+export function animateInit() {
     new WOW().init();
 
     modulesLinkWrapper.insertAdjacentHTML('afterbegin', `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">`);
@@ -40,7 +40,7 @@ export function swiperInit(selector, config = {}) {
 
     config.modules = [Navigation, Pagination];
 
-    const swiper = new Swiper(selector, config);
+    new Swiper(selector, config);
 }
 
 export function accordionInit() {

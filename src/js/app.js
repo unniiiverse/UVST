@@ -1,5 +1,6 @@
-import * as uvstFunctions from './modules/functions.js';
+import * as uvst from './modules/functions.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Modules import section
     
 });
