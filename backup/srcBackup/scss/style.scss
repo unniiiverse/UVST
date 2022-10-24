@@ -1,0 +1,118 @@
+@import url('https://unniiiverse.github.io/cdn/style/normalize.min.css');
+@import './base/fonts';
+// google fonts, ...
+
+@import './base/mixins';
+@import './base/common';
+
+// =========================== *\
+// Default font settings.
+// =========================== */
+$fontSize: 16px;
+$fontWeight: 400;
+$fontColor: #000;
+$fontFamily: system-ui;
+
+// =========================== *\
+// Wrapper settings.
+// =========================== */
+$wrapperMaxWidth: 1170px;
+$wrapperMinWidth: 320px;
+$wrapperSidePadding: 16px;
+
+// =========================== *\
+// Tippy.js animations.
+// =========================== */
+
+.tippy-box {
+    &[data-animation='fade'][data-state='hidden'] {
+        opacity: 0;
+    }
+}
+
+// =========================== *\
+// UVST classes.
+// =========================== */
+
+html,
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+p,
+span,
+b,
+strong,
+i,
+sub,
+sup,
+a,
+input,
+input::placeholder,
+textarea {
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    font-weight: $fontWeight;
+    color: $fontColor;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+    text-decoration-skip-ink: auto;
+}
+
+input::placeholder {
+    color: rgba($color: $fontColor, $alpha: .4);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+}
+
+.wrapper {
+    max-width: $wrapperMaxWidth;
+    min-width: calc($wrapperMinWidth + calc($wrapperSidePadding * 2));
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $wrapperSidePadding;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.g {
+    &-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    &-col {
+        display: flex;
+        flex: 1 0 0;
+        min-width: 300px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        content: 'systemTheme--dark';
+    }
+}
+
+// Import common pages/components styles
+@import './components/header';
+@import './components/footer';
+
+// Import single pages styles
+@import './index';
